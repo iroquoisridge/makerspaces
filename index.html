@@ -69,9 +69,8 @@
 
     <!-- Header -->
     <header id="fh5co-header" role="banner">
-        <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle fh5co-nav-white"><i></i></a>
         <div id="fh5co-logo" class="text-center">
-            <a href="index.html"><img src="images/logo.png" width="120px" alt="Image"></a>
+            <a href="index.html"><img src="images/cmc.png" width="150px" alt="Image"></a>
         </div>
     </header>
     <!-- Header -->
@@ -196,8 +195,85 @@
                 </div>
             </div>
         </div>
+
+        <hr class="fh5co-spacer fh5co-spacer-sm">
+
+        <div id="fh5co-latest-project">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <figure>
+                            <img src="images/orange.jpeg" alt="Image" class="img-responsive">
+                        </figure>
+                    </div>
+                    <div class="col-md-3 col-md-push-1">
+                        <section>
+                            <h5 class="text-muted text-uppercase fh5co-no-margin-bottom fh5co-letter-space">Library AV Room</h5>
+                            <br class="fh5co-spacer fh5co-spacer-xxs">
+                            <h2 class="fh5co-heading-with-border"><span id="orangeSpan" class="fh5co-border"></span>Orange Room</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa doloribus molestias, explicabo itaque, quos consequatur quam, tempore enim voluptatum nulla quas iusto voluptate quae modi commodi maiores voluptatibus perspiciatis
+                                aut! Lorem ipsum.</p>
+
+                            <p><a id="orangeLink" href="#" class="fh5co-link roomBtns"><i class="fa fa-angle-right"></i> View Project</a></p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Latest Project -->
+        <hr class="fh5co-spacer fh5co-spacer-sm">
+
+        <div id="fh5co-latest-project">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-md-push-0">
+                        <section>
+                            <h5 class="text-muted text-uppercase fh5co-no-margin-bottom fh5co-letter-space">Storage Room</h5>
+                            <br class="fh5co-spacer fh5co-spacer-xxs">
+                            <h2 class="fh5co-heading-with-border"><span id="purpleSpan" class="fh5co-border"></span>Purple Room</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa doloribus molestias, explicabo itaque, quos consequatur quam, tempore enim voluptatum nulla quas iusto voluptate quae modi commodi maiores voluptatibus perspiciatis
+                                aut! Lorem ipsum.</p>
+
+                            <p><a id="purpleLink" href="#" class="fh5co-link roomBtns"><i class="fa fa-angle-right"></i> View Project</a></p>
+                        </section>
+                    </div>
+                    <div class="col-md-8">
+                        <figure>
+                            <img src="images/purple.jpeg" alt="Image" class="img-responsive">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="fh5co-spacer fh5co-spacer-sm">
+
+        <div id="fh5co-latest-project">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <figure>
+                            <img src="images/pink.jpeg" alt="Image" class="img-responsive">
+                        </figure>
+                    </div>
+                    <div class="col-md-3 col-md-push-1">
+                        <section>
+                            <h5 class="text-muted text-uppercase fh5co-no-margin-bottom fh5co-letter-space">Room Above Gymnasium</h5>
+                            <br class="fh5co-spacer fh5co-spacer-xxs">
+                            <h2 class="fh5co-heading-with-border"><span id="pinkSpan" class="fh5co-border"></span>Pink Room</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa doloribus molestias, explicabo itaque, quos consequatur quam, tempore enim voluptatum nulla quas iusto voluptate quae modi commodi maiores voluptatibus perspiciatis
+                                aut! Lorem ipsum.</p>
+
+                            <p><a id="pinkLink" href="#" class="fh5co-link roomBtns"><i class="fa fa-angle-right"></i> View Project</a></p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
     <!-- Main -->
+
 
     <!-- Call to action -->
     <div class="fh5co-call-to-action" style="background-image: url(images/img_wide_1.jpg); background-position: center center;">
@@ -268,6 +344,9 @@
                 $greenRoomBtn = $('#greenLink');
                 $goldRoomBtn = $('#goldLink');
                 $redRoomBtn = $('#redLink');
+                $orangeRoomBtn = $('#orangeLink');
+                $pinkRoomBtn = $('#pinkLink');
+                $purpleRoomBtn = $('#purpleLink');
 
                 var rooms = {
                   "blue": {
@@ -289,6 +368,21 @@
                     "title": "Red Room",
                     "roomNum": 302,
                     "desc": "This is the red room."
+                  },
+                  "purple":{
+                    "title": "Purple Room",
+                    "roomNum": "for Book Storage",
+                    "desc": "This is the purple room."
+                  },
+                  "orange":{
+                    "title": "Orange Room",
+                    "roomNum": "Library AV",
+                    "desc": "This is the orange room."
+                  },
+                  "pink":{
+                      "title": "Pink Room",
+                      "roomNum": "above Gymnasium",
+                      "desc": "This is the pink room."
                   }
                 }
                 /* 				    */
@@ -301,6 +395,12 @@
                 $('#goldSpan').css("background", "#FFD700");
                 $redRoomBtn.css("color", "#FF0000");
                 $('#redSpan').css("background", "#FF0000");
+                $orangeRoomBtn.css("color", "orange");
+                $('#orangeSpan').css("background", "orange");
+                $purpleRoomBtn.css("color", "purple");
+                $('#purpleSpan').css("background", "purple");
+                $pinkRoomBtn.css("color", "pink");
+                $('#pinkSpan').css("background", "pink");
                 //change cta button colour
                 $ctaButton.css("border", "2px solid red");
                 $ctaButton.css("background", "red");
