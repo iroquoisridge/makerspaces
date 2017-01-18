@@ -50,8 +50,10 @@
 </head>
 
 <body data-name="gototop">
+  <!-- Fancybox popup -->
+      <div class="fancybox" rel="group" id="roomPopup"></div>
 
-    <!-- Navigation -->
+      <!-- Navigation -->
     <div id="fh5co-main-nav-wrap">
         <div class="fh5co-nav-overlay"></div>
         <div class="fh5co-nav-inner">
@@ -112,8 +114,8 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa doloribus molestias, explicabo itaque, quos consequatur quam, tempore enim voluptatum nulla quas iusto voluptate quae modi commodi maiores voluptatibus perspiciatis
                                 aut! Lorem ipsum.</p>
 
-                            <p><a href="#" class="fh5co-link" id="blueRoomBtn"><i class="fa fa-angle-right"></i> View Project</a></p>
-                            <div class="fancybox" rel="group" id="bluePopup"></div>
+                            <p><a href="#" class="fh5co-link roomBtns" id="blueLink"><i class="fa fa-angle-right"></i> View Project</a></p>
+
                         </section>
                     </div>
                 </div>
@@ -133,7 +135,7 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa doloribus molestias, explicabo itaque, quos consequatur quam, tempore enim voluptatum nulla quas iusto voluptate quae modi commodi maiores voluptatibus perspiciatis
                                 aut! Lorem ipsum.</p>
 
-                            <p><a id="greenLink" href="#" class="fh5co-link"><i class="fa fa-angle-right"></i> View Project</a></p>
+                            <p><a id="greenLink" href="#" class="fh5co-link roomBtns"><i class="fa fa-angle-right"></i> View Project</a></p>
                         </section>
                     </div>
                     <div class="col-md-8">
@@ -163,7 +165,7 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa doloribus molestias, explicabo itaque, quos consequatur quam, tempore enim voluptatum nulla quas iusto voluptate quae modi commodi maiores voluptatibus perspiciatis
                                 aut! Lorem ipsum.</p>
 
-                            <p><a id="goldLink" href="#" class="fh5co-link"><i class="fa fa-angle-right"></i> View Project</a></p>
+                            <p><a id="goldLink" href="#" class="fh5co-link roomBtns"><i class="fa fa-angle-right"></i> View Project</a></p>
                         </section>
                     </div>
                 </div>
@@ -183,7 +185,7 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa doloribus molestias, explicabo itaque, quos consequatur quam, tempore enim voluptatum nulla quas iusto voluptate quae modi commodi maiores voluptatibus perspiciatis
                                 aut! Lorem ipsum.</p>
 
-                            <p><a id="redLink" href="#" class="fh5co-link"><i class="fa fa-angle-right"></i> View Project</a></p>
+                            <p><a id="redLink" href="#" class="fh5co-link roomBtns"><i class="fa fa-angle-right"></i> View Project</a></p>
                         </section>
                     </div>
                     <div class="col-md-8">
@@ -253,21 +255,51 @@
                         scrollTop: tag.offset().top
                     }, 666);
                 }
+                //capitalize first letter of string
+                function capFirstLetter(string) {
+                  return string.charAt(0).toUpperCase() + string.slice(1);
+                }
                 /* 					 */
                 /* Variables */
                 /* 					 */
                 $ctaButton = $('#fh5co-hero > div.container > div > div > p:nth-child(4) > a');
                 $mainDiv = $('main');
-                $blueRoomBtn = $('#blueRoomBtn');
+                $blueRoomBtn = $('#blueLink');
+                $greenRoomBtn = $('#greenLink');
+                $goldRoomBtn = $('#goldLink');
+                $redRoomBtn = $('#redLink');
+
+                var rooms = {
+                  "blue": {
+                    "title": "Blue Room",
+                    "roomNum": 201,
+                    "desc": "This is the blue room."
+                  },
+                  "green": {
+                    "title": "Green Room",
+                    "roomNum": 202,
+                    "desc": "This is the green room."
+                  },
+                  "gold": {
+                    "title": "Gold Room",
+                    "roomNum": 218,
+                    "desc": "This is the gold room."
+                  },
+                  "red": {
+                    "title": "Red Room",
+                    "roomNum": 302,
+                    "desc": "This is the red room."
+                  }
+                }
                 /* 				    */
                 /*    Main    */
                 /* 				 	  */
                 //Change rooms to secondary colour
-                $('#greenLink').css("color", "#00FF00");
+                $greenRoomBtn.css("color", "#00FF00");
                 $('#greenSpan').css("background", "#00FF00");
-                $('#goldLink').css("color", "#FFFF00");
-                $('#goldSpan').css("background", "#FFFF00");
-                $('#redLink').css("color", "#FF0000");
+                $goldRoomBtn.css("color", "#FFD700");
+                $('#goldSpan').css("background", "#FFD700");
+                $redRoomBtn.css("color", "#FF0000");
                 $('#redSpan').css("background", "#FF0000");
                 //change cta button colour
                 $ctaButton.css("border", "2px solid red");
@@ -277,17 +309,19 @@
                     scrollToAnchor($mainDiv);
                 });
                 //blue room popup
-                $blueRoomBtn.on("click", function(e){
+                $('.roomBtns').on("click", function(e){
                   e.preventDefault();
+                  var roomColour = e.currentTarget.id.slice(0,-4);
+                  var roomClicked = rooms[roomColour];
                   $.fancybox({
-                      href: '#bluePopup',
+                      href: '#roomPopup',
                       width: 700,
                       autoDimensions: false,
                       autoSize: false,
                       afterLoad: function() {
                           this.content = "";
-                          this.inner.prepend('<h1>Blue Room (Room 201)</h1>');
-                          this.content += "Blue room description";
+                          this.inner.prepend('<h1>' + capFirstLetter(roomColour) + ' Room (Room ' + roomClicked["roomNum"] + ')</h1>');
+                          this.content += roomClicked["desc"];
                       }
                   });
                 });
