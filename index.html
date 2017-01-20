@@ -282,7 +282,7 @@
             <div class="fh5co-call-to-action-wrap">
                 <div class="fh5co-call-to-action-inner text-center">
                     <h3 class="fh5co-call-to-action-text">Questions?</h3>
-                    <a href="#" class="btn btn-primary btn-lg">Contact Us</a>
+                    <a href="mailto:pattersonka@hdsb.ca?Subject=OCE%20Grant%20Response" target="_top" class="btn btn-primary btn-lg">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -350,37 +350,30 @@
 
                 var rooms = {
                   "blue": {
-                    "title": "Blue Room",
                     "roomNum": 201,
                     "desc": "This is the blue room."
                   },
                   "green": {
-                    "title": "Green Room",
                     "roomNum": 202,
                     "desc": "This is the green room."
                   },
                   "gold": {
-                    "title": "Gold Room",
                     "roomNum": 218,
                     "desc": "This is the gold room."
                   },
                   "red": {
-                    "title": "Red Room",
                     "roomNum": 302,
                     "desc": "This is the red room."
                   },
                   "purple":{
-                    "title": "Purple Room",
                     "roomNum": "for Book Storage",
                     "desc": "This is the purple room."
                   },
                   "orange":{
-                    "title": "Orange Room",
                     "roomNum": "Library AV",
                     "desc": "This is the orange room."
                   },
                   "pink":{
-                      "title": "Pink Room",
                       "roomNum": "above Gymnasium",
                       "desc": "This is the pink room."
                   }
@@ -389,21 +382,21 @@
                 /*    Main    */
                 /* 				 	  */
                 //Change rooms to secondary colour
-                $greenRoomBtn.css("color", "#00FF00");
-                $('#greenSpan').css("background", "#00FF00");
-                $goldRoomBtn.css("color", "#FFD700");
-                $('#goldSpan').css("background", "#FFD700");
-                $redRoomBtn.css("color", "#FF0000");
-                $('#redSpan').css("background", "#FF0000");
-                $orangeRoomBtn.css("color", "orange");
-                $('#orangeSpan').css("background", "orange");
-                $purpleRoomBtn.css("color", "purple");
-                $('#purpleSpan').css("background", "purple");
-                $pinkRoomBtn.css("color", "pink");
-                $('#pinkSpan').css("background", "pink");
+                $greenRoomBtn.css("color", "#8BC34A");
+                $('#greenSpan').css("background", "#8BC34A");
+                $goldRoomBtn.css("color", "#FFC107");
+                $('#goldSpan').css("background", "#FFC107");
+                $redRoomBtn.css("color", "#F44336");
+                $('#redSpan').css("background", "#F44336");
+                $orangeRoomBtn.css("color", "#FF9800");
+                $('#orangeSpan').css("background", "#FF9800");
+                $purpleRoomBtn.css("color", "#9C27B0");
+                $('#purpleSpan').css("background", "#9C27B0");
+                $pinkRoomBtn.css("color", "#E91E63");
+                $('#pinkSpan').css("background", "#E91E63");
                 //change cta button colour
-                $ctaButton.css("border", "2px solid red");
-                $ctaButton.css("background", "red");
+                $ctaButton.css("border", "2px solid #F44336");
+                $ctaButton.css("background", "#F44336");
                 //scroll down to main section when cta button clicked
                 $ctaButton.on("click", function() {
                     scrollToAnchor($mainDiv);
@@ -421,6 +414,7 @@
                       afterLoad: function() {
                           this.content = "";
                           this.inner.prepend('<h1>' + capFirstLetter(roomColour) + ' Room (Room ' + roomClicked["roomNum"] + ')</h1>');
+                          this.content += "<img src='images/" + roomColour + "Diagram.png'><br>";
                           this.content += roomClicked["desc"];
                       }
                   });
